@@ -4,10 +4,8 @@ import com.flightinquiry.exception.AirportException;
 import com.flightinquiry.model.dto.AirportDto;
 import com.flightinquiry.model.entity.Airport;
 import com.flightinquiry.model.mapper.AirportMapper;
-import com.flightinquiry.model.request.AirportRequest;
 import com.flightinquiry.repository.AirportRepository;
 import com.flightinquiry.service.AirportService;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

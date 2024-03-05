@@ -2,7 +2,6 @@ package com.flightinquiry.service;
 
 import com.flightinquiry.model.dto.AirportDto;
 import com.flightinquiry.model.entity.Airport;
-import com.flightinquiry.model.request.AirportRequest;
 
 import java.util.List;
 

@@ -1,11 +1,9 @@
 package com.flightinquiry.service.impl;
 
-import com.flightinquiry.exception.AirportException;
 import com.flightinquiry.exception.FlightException;
 import com.flightinquiry.model.dto.FlightDto;
 import com.flightinquiry.model.entity.Airport;
 import com.flightinquiry.model.entity.Flight;
-import com.flightinquiry.model.mapper.FlightMapper;
 import com.flightinquiry.repository.FlightRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,12 +12,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -27,11 +21,7 @@ import static org.mockito.Mockito.*;
 
 class FlightServiceImplTest {
     @Mock
-    FlightMapper flightMapper;
-    @Mock
     FlightRepository flightRepository;
-    @Mock
-    Logger log;
     @InjectMocks
     FlightServiceImpl flightServiceImpl;
 
@@ -74,7 +64,7 @@ class FlightServiceImplTest {
     void testFindFlightById_() {
         when(flightRepository.findById(anyLong())).thenReturn(Optional.empty());
 
-        assertThrows(FlightException.class, () -> flightServiceImpl.findFlightById(anyLong()));
+        assertThrows(FlightException.class, () -> flightServiceImpl.findFlightById(1L));
 
     }
 
@@ -91,7 +81,7 @@ class FlightServiceImplTest {
     @Test
     void testUpdateFlight() {
         when(flightRepository.findById(anyLong())).thenReturn(Optional.of(flight));
-        FlightDto savedFlight = flightServiceImpl.updateFlight(flight,1l);
+        FlightDto savedFlight = flightServiceImpl.updateFlight(flight, 1L);
 
         assertEquals(1L, savedFlight.getId());
     }
@@ -106,6 +96,7 @@ class FlightServiceImplTest {
     @Test
     void testDeleteFlightById() {
         flightServiceImpl.deleteFlightById(1L);
+
     }
 }
 

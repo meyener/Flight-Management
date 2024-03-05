@@ -1,7 +1,6 @@
 package com.flightinquiry.controller;
 
 import com.flightinquiry.model.dto.FlightDto;
-import com.flightinquiry.model.entity.Airport;
 import com.flightinquiry.model.entity.Flight;
 import com.flightinquiry.service.FlightService;
 import org.junit.jupiter.api.Assertions;
@@ -12,9 +11,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.ResponseEntity;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
@@ -59,6 +55,6 @@ class FlightControllerTest {
 
     @Test
     void testDeleteFlightById() {
-        flightController.deleteFlightById(Long.valueOf(1));
+        flightController.deleteFlightById(1L);
     }
 }

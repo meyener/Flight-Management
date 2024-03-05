@@ -2,7 +2,6 @@ package com.flightinquiry.controller;
 
 import com.flightinquiry.model.dto.AirportDto;
 import com.flightinquiry.model.entity.Airport;
-import com.flightinquiry.model.request.AirportRequest;
 import com.flightinquiry.service.AirportService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;

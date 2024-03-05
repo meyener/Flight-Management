@@ -11,9 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
@@ -57,7 +54,7 @@ class AirportControllerTest {
     void testUpdateAirport() {
         when(airportService.updateAirport(any(), anyLong())).thenReturn(new AirportDto(1L, "city"));
 
-        AirportDto result = airportController.updateAirport(new Airport(),1l);
+        AirportDto result = airportController.updateAirport(new Airport(), 1L);
         Assertions.assertEquals(new AirportDto(1L, "city"), result);
     }
 

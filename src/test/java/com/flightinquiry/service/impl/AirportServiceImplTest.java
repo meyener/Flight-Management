@@ -68,7 +68,7 @@ class AirportServiceImplTest {
 
         AirportDto airportById = airportServiceImpl.findAirportById(1L);
 
-        assertEquals(airportById.getId(),1L);
+        assertEquals(1L, airportById.getId());
     }
 
     @Test
@@ -76,7 +76,7 @@ class AirportServiceImplTest {
 
         when(airportRepository.findById(anyLong())).thenReturn(Optional.empty());
 
-        assertThrows(AirportException.class, () -> airportServiceImpl.findAirportById(anyLong()));
+        assertThrows(AirportException.class, () -> airportServiceImpl.findAirportById(1L));
     }
 
     @Test
@@ -86,13 +86,12 @@ class AirportServiceImplTest {
         airport.setCity("a");
         airport.setFlight(Collections.emptyList());
         airport.setFlights(Collections.emptyList());
-        AirportDto airportDto = new AirportDto(1L, "a");
 
         when(airportRepository.save(any(Airport.class))).thenReturn(airport);
 
         AirportDto resultDto = airportServiceImpl.saveAirport(airport);
 
-        assertEquals(resultDto.getId(),1L);
+        assertEquals(1L, resultDto.getId());
 
     }
 
