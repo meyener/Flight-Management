@@ -1,7 +1,6 @@
 package com.flightinquiry.model.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,11 +26,9 @@ public class Flight {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "departureAirport_id")
-    @JsonIgnore
     private Airport departureAirport;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "arrivalAirport_id")
-    @JsonIgnore
     private Airport arrivalAirport;
 }

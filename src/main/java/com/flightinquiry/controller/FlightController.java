@@ -1,7 +1,7 @@
 package com.flightinquiry.controller;
 
 import com.flightinquiry.model.dto.FlightDto;
-import com.flightinquiry.model.request.FlightRequest;
+import com.flightinquiry.model.entity.Flight;
 import com.flightinquiry.service.FlightService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -32,11 +32,11 @@ public class FlightController {
     }
 
     @PostMapping("/saveflight")
-    public FlightDto saveFlight(@Valid @RequestBody FlightRequest flight){
-        return flightService.saveFlight(flight,null);
+    public FlightDto saveFlight(@Valid @RequestBody Flight flight){
+        return flightService.saveFlight(flight);
     }
     @PostMapping("/updateflight")
-    public FlightDto updateFlight(@Valid @RequestBody FlightRequest flight, @RequestParam Long id){
+    public FlightDto updateFlight(@Valid @RequestBody Flight flight, @RequestParam Long id){
         return flightService.updateFlight(flight,id);
     }
 

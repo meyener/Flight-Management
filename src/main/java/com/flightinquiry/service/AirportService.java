@@ -1,5 +1,6 @@
 package com.flightinquiry.service;
 
+import com.flightinquiry.exception.AirportException;
 import com.flightinquiry.model.dto.AirportDto;
 import com.flightinquiry.model.entity.Airport;
 import com.flightinquiry.model.mapper.AirportMapper;
@@ -16,23 +17,22 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AirportService {
 
+    private final AirportMapper airportMapper=AirportMapper.INSTANCE;
+
     private final AirportRepository airportRepository;
 
     public List<AirportDto> getAllAirports(){
         return airportRepository.findAll().stream()
-                .map(AirportMapper::toDto)
+                .map(airportMapper::toDto)
                 .toList();
     }
 
-    public List<Airport> getAllAirportsWitId(){
-        return airportRepository.findAll();
-    }
 
     public AirportDto findAirportById(Long id){
         Optional<Airport> airport=airportRepository.findById(id);
 
         if (airport.isPresent()){
-            return AirportMapper.toDto(airport.get());
+            return airportMapper.toDto(airport.get());
         }else{
             throw new EntityNotFoundException("There's no airport for this id : " + id);
         }
@@ -44,11 +44,10 @@ public class AirportService {
         if (optionalAirport.isEmpty()){
             Airport airport=new Airport();
             airport.setCity(airportRequest.getCity());
-
             Airport savedAirport = airportRepository.save(airport);
-            return AirportMapper.toDto(savedAirport);
+            return airportMapper.toDto(savedAirport);
         }else{
-            throw new RuntimeException("This object is Exist !!!");
+            throw new AirportException("This object is Exist !!!");
         }
 
     }

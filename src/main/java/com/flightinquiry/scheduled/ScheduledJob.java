@@ -1,6 +1,6 @@
 package com.flightinquiry.scheduled;
 
-import com.flightinquiry.model.request.FlightRequest;
+import com.flightinquiry.model.entity.Flight;
 import com.flightinquiry.service.FlightService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -18,12 +18,12 @@ public class ScheduledJob {
     @Scheduled(cron = "000**?")
     public void scheduledMethod(){
 
-        List<FlightRequest> flightRequests= Arrays.asList(
-                new FlightRequest(),new FlightRequest(),new FlightRequest()
+        List<Flight> flightRequests= Arrays.asList(
+                new Flight(),new Flight(),new Flight()
         );
 
-        for (FlightRequest flightDto:flightRequests) {
-            flightService.saveFlight(flightDto,null);
+        for (Flight flight:flightRequests) {
+            flightService.saveFlight(flight);
 
         }
     }

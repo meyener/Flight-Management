@@ -1,5 +1,6 @@
 package com.flightinquiry.controller;
 
+import com.flightinquiry.model.entity.Airport;
 import com.flightinquiry.model.entity.Flight;
 import com.flightinquiry.service.SearchService;
 import jakarta.annotation.Nullable;
@@ -22,8 +23,8 @@ public class SearchController {
     @GetMapping
     public List<Flight> searchFlightsWithParams(@RequestParam LocalDateTime departureDate,
                                                 @RequestParam  @Nullable LocalDateTime returnDate,
-                                                @RequestParam String departureAirport,
-                                                @RequestParam String arrivalAirport){
+                                                @RequestParam Airport departureAirport,
+                                                @RequestParam Airport arrivalAirport){
         return searchService.searchFlightsWithParams(departureDate,returnDate,departureAirport,arrivalAirport);
     }
 }
