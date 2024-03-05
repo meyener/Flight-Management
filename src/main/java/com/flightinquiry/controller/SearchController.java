@@ -2,7 +2,7 @@ package com.flightinquiry.controller;
 
 import com.flightinquiry.model.entity.Airport;
 import com.flightinquiry.model.entity.Flight;
-import com.flightinquiry.service.SearchService;
+import com.flightinquiry.service.impl.SearchServiceImpl;
 import jakarta.annotation.Nullable;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SearchController {
 
-    private final SearchService searchService;
+    private final SearchServiceImpl searchService;
 
     @GetMapping
     public List<Flight> searchFlightsWithParams(@RequestParam LocalDateTime departureDate,
