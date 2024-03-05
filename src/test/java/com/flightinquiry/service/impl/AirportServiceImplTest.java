@@ -106,7 +106,7 @@ class AirportServiceImplTest {
         when(airportRepository.findById(anyLong())).thenReturn(Optional.of(airport));
         AirportDto resultDto = airportServiceImpl.updateAirport(airport,1L);
 
-        assertEquals(resultDto.getId(),1L);
+        assertEquals(1L, resultDto.getId());
 
     }
     @Test
@@ -124,7 +124,7 @@ class AirportServiceImplTest {
 
     @Test
     void testDeleteAirportById() {
-        airportServiceImpl.deleteAirportById(Long.valueOf(1));
+        airportServiceImpl.deleteAirportById(1L);
     }
     @Test
     void testSaveAirport_throws() {
