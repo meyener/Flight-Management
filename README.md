@@ -2,7 +2,7 @@
 
 Spring Boot, JPA, Unit Test JUNIT5
 
-CRUD operations,
+CRUD operations
 
 Unit Tests of Service and Controller Layer is done (Coverages are 100%),
 
