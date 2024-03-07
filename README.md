@@ -1,8 +1,6 @@
 ## Flight Backend Project
 
-*Spring Boot
-*JPA
-*Unit Test JUNIT5
+Spring Boot, JPA, Unit Test JUNIT5
 
 CRUD operations,
 
